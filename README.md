@@ -1,7 +1,7 @@
 FlapPyBird
 ===============
 
-A Flappy Bird Clone made using [python-pygame][pygame]
+A Flappy Bird Clone made using [python-pygame][pygame] with Q-Learning AI to hit your high score. :)
 
 Setup (as tested on MacOS)
 ---------------------------
