@@ -168,7 +168,7 @@ def showWelcomeAnimation():
                 sys.exit()
             if event.type == KEYDOWN and (event.key == K_SPACE or event.key == K_UP):
                 # make first flap sound and return values for mainGame
-                SOUNDS['wing'].play()
+                #SOUNDS['wing'].play()
                 return {
                     'playery': playery + playerShmVals['val'],
                     'basex': basex,
@@ -241,7 +241,7 @@ def mainGame(movementInfo, shouldEmulateKeyPress):
                 if playery > -2 * IMAGES['player'][0].get_height():
                     playerVelY = playerFlapAcc
                     playerFlapped = True
-                    SOUNDS['wing'].play()
+                    #SOUNDS['wing'].play()
 
         params = {
             'playerVelY': playerVelY,
@@ -254,7 +254,7 @@ def mainGame(movementInfo, shouldEmulateKeyPress):
             if playery > -2 * IMAGES['player'][0].get_height():
                 playerVelY = playerFlapAcc
                 playerFlapped = True
-                SOUNDS['wing'].play()
+                #SOUNDS['wing'].play()
 
         # check for crash here
         crashTest = checkCrash({'x': playerx, 'y': playery, 'index': playerIndex},
@@ -277,7 +277,7 @@ def mainGame(movementInfo, shouldEmulateKeyPress):
             pipeMidPos = pipe['x'] + IMAGES['pipe'][0].get_width() / 2
             if pipeMidPos <= playerMidPos < pipeMidPos + 4:
                 score += 1
-                SOUNDS['point'].play()
+                #SOUNDS['point'].play()
 
         # playerIndex basex change
         if (loopIter + 1) % 3 == 0:
@@ -318,26 +318,26 @@ def mainGame(movementInfo, shouldEmulateKeyPress):
             lowerPipes.pop(0)
 
         # draw sprites
-        SCREEN.blit(IMAGES['background'], (0,0))
+        #SCREEN.blit(IMAGES['background'], (0,0))
 
-        for uPipe, lPipe in zip(upperPipes, lowerPipes):
-            SCREEN.blit(IMAGES['pipe'][0], (uPipe['x'], uPipe['y']))
-            SCREEN.blit(IMAGES['pipe'][1], (lPipe['x'], lPipe['y']))
+        #for uPipe, lPipe in zip(upperPipes, lowerPipes):
+        #    SCREEN.blit(IMAGES['pipe'][0], (uPipe['x'], uPipe['y']))
+        #    SCREEN.blit(IMAGES['pipe'][1], (lPipe['x'], lPipe['y']))
 
-        SCREEN.blit(IMAGES['base'], (basex, BASEY))
+        #SCREEN.blit(IMAGES['base'], (basex, BASEY))
         # print score so player overlaps the score
-        showScore(score)
+        #showScore(score)
 
         # Player rotation has a threshold
         visibleRot = playerRotThr
         if playerRot <= playerRotThr:
             visibleRot = playerRot
         
-        playerSurface = pygame.transform.rotate(IMAGES['player'][playerIndex], visibleRot)
-        SCREEN.blit(playerSurface, (playerx, playery))
+        #playerSurface = pygame.transform.rotate(IMAGES['player'][playerIndex], visibleRot)
+        #SCREEN.blit(playerSurface, (playerx, playery))
 
-        pygame.display.update()
-        FPSCLOCK.tick(FPS)
+        #pygame.display.update()
+        #FPSCLOCK.tick(FPS)
 
 
 def showGameOverScreen(crashInfo):
